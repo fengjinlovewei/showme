@@ -1,5 +1,5 @@
 ## 配置
-docker network create my-network
+docker network create fengjin-network
 
 docker build . -t fengjin/showme
 
