@@ -4,7 +4,7 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "error-404.3y36hLgm.js",
+    "file": "error-404.CvVMo3Ea.js",
     "src": "node_modules/.pnpm/@nuxt+ui-templates@1.3.1/node_modules/@nuxt/ui-templates/dist/templates/error-404.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -23,7 +23,7 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "error-500.DIab4VvS.js",
+    "file": "error-500.COlbLZF4.js",
     "src": "node_modules/.pnpm/@nuxt+ui-templates@1.3.1/node_modules/@nuxt/ui-templates/dist/templates/error-500.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -42,7 +42,7 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "entry.CWr9WWjP.js",
+    "file": "entry.BECJWQZF.js",
     "src": "node_modules/.pnpm/nuxt@3.10.2_vite@5.1.3/node_modules/nuxt/dist/app/entry.js",
     "isEntry": true,
     "dynamicImports": [

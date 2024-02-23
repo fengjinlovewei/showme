@@ -1,0 +1,17 @@
+{
+  "resolvedId": "virtual:nuxt:/Users/zyb/Desktop/my/showme/.nuxt/css.mjs",
+  "transforms": [
+    {
+      "name": "__load__",
+      "result": "",
+      "start": 1708677232893,
+      "end": 1708677232893
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1708677232893,
+      "end": 1708677232893,
+      "order": "normal"
+    }
+  ]
+}
