@@ -12,7 +12,7 @@ ENV HOST 0.0.0.0
 
 WORKDIR /showme
 
-COPY .output/ /showme
+COPY . /showme
 
 ENV NUXT_PORT=3000
 
