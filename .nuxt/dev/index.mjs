@@ -13,7 +13,7 @@ import { fileURLToPath } from 'url';
 import { getRequestDependencies, getPreloadLinks, getPrefetchLinks, createRenderer } from 'file:///Users/zyb/Desktop/my/showme/node_modules/.pnpm/vue-bundle-renderer@2.0.0/node_modules/vue-bundle-renderer/dist/runtime.mjs';
 import { stringify, uneval } from 'file:///Users/zyb/Desktop/my/showme/node_modules/.pnpm/devalue@4.3.2/node_modules/devalue/index.js';
 import { parseURL, withoutBase, joinURL, getQuery, withQuery } from 'file:///Users/zyb/Desktop/my/showme/node_modules/.pnpm/ufo@1.4.0/node_modules/ufo/dist/index.mjs';
-import { renderToString } from 'file:///Users/zyb/Desktop/my/showme/node_modules/.pnpm/vue@3.4.20/node_modules/vue/server-renderer/index.mjs';
+import { renderToString } from 'file:///Users/zyb/Desktop/my/showme/node_modules/.pnpm/vue@3.4.20_typescript@5.3.3/node_modules/vue/server-renderer/index.mjs';
 import { renderSSRHead } from 'file:///Users/zyb/Desktop/my/showme/node_modules/.pnpm/@unhead+ssr@1.8.10/node_modules/@unhead/ssr/dist/index.mjs';
 import { createFetch as createFetch$1, Headers as Headers$1 } from 'file:///Users/zyb/Desktop/my/showme/node_modules/.pnpm/ofetch@1.3.3/node_modules/ofetch/dist/node.mjs';
 import destr from 'file:///Users/zyb/Desktop/my/showme/node_modules/.pnpm/destr@2.0.3/node_modules/destr/dist/index.mjs';
@@ -26,7 +26,7 @@ import { hash } from 'file:///Users/zyb/Desktop/my/showme/node_modules/.pnpm/oha
 import { createStorage, prefixStorage } from 'file:///Users/zyb/Desktop/my/showme/node_modules/.pnpm/unstorage@1.10.1/node_modules/unstorage/dist/index.mjs';
 import unstorage_47drivers_47fs from 'file:///Users/zyb/Desktop/my/showme/node_modules/.pnpm/unstorage@1.10.1/node_modules/unstorage/drivers/fs.mjs';
 import { toRouteMatcher, createRouter } from 'file:///Users/zyb/Desktop/my/showme/node_modules/.pnpm/radix3@1.1.0/node_modules/radix3/dist/index.mjs';
-import { version, unref } from 'file:///Users/zyb/Desktop/my/showme/node_modules/.pnpm/vue@3.4.20/node_modules/vue/index.mjs';
+import { version, unref } from 'file:///Users/zyb/Desktop/my/showme/node_modules/.pnpm/vue@3.4.20_typescript@5.3.3/node_modules/vue/index.mjs';
 import { createServerHead as createServerHead$1 } from 'file:///Users/zyb/Desktop/my/showme/node_modules/.pnpm/unhead@1.8.10/node_modules/unhead/dist/index.mjs';
 import { defineHeadPlugin } from 'file:///Users/zyb/Desktop/my/showme/node_modules/.pnpm/@unhead+shared@1.8.10/node_modules/@unhead/shared/dist/index.mjs';
 
@@ -677,12 +677,12 @@ const errorHandler = (async function errorhandler(error, event) {
 });
 
 const _lazy_ose3di = () => Promise.resolve().then(function () { return getMarkdown$1; });
-const _lazy_Mxvx7W = () => Promise.resolve().then(function () { return renderer$1; });
+const _lazy_eZaKsM = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
   { route: '/api/getMarkdown', handler: _lazy_ose3di, lazy: true, middleware: false, method: undefined },
-  { route: '/__nuxt_error', handler: _lazy_Mxvx7W, lazy: true, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_Mxvx7W, lazy: true, middleware: false, method: undefined }
+  { route: '/__nuxt_error', handler: _lazy_eZaKsM, lazy: true, middleware: false, method: undefined },
+  { route: '/**', handler: _lazy_eZaKsM, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {

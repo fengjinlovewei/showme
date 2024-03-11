@@ -171,12 +171,14 @@ async function getData(time){
   //title: 4005.523ms
 })();
 ```
-#####二、使用function* / yield
+
+##### 二、使用function* / yield
 [关于function* / yield的基础方法介绍的文章](https://www.cnblogs.com/liumingwang/p/10216073.html)
 [文章部分介绍了function* / yield](https://www.jianshu.com/p/464c5aeabc40)
 基础方法需要了解一下，不赘述了
 
-####三、使用function* / yield 实现 async/await 函数
+
+#### 三、使用function* / yield 实现 async/await 函数
 >实现目标：
 ①内部支持异步代码的同步化
 ②函数返回值必须是一个Promise
@@ -186,8 +188,9 @@ async function getData(time){
 ⑥函数的参数要正常使用，且执行内部的this需要指向定义时的对象。
 ⑦如果执行函数内部return 后是Promise，直接取这个Promise的状态和值为己用，如果结果值依然是Promise，则继续反复，直到拿到一个非Promise值。
 
+
 _async.js
-```
+```javascript
 /**
 * 传入需要使用async的函数
 * @param {function} fn
@@ -241,8 +244,9 @@ function _iterator(gen, resolve, reject, val, err){
 
 module.exports = _async
 ```
+
 使用
-```
+```javascript
 const _async = require('./_async')
 //模拟异步请求
 const getTime = function (time, bool){
@@ -288,4 +292,5 @@ methods.getPromise(9,8,7)
   console.log(err)
 })
 ```
+
 大佬略，新手可以参考一下，反正我是写完之后再看function* / yield 和 async/await ，觉得很通透。

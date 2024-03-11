@@ -1840,21 +1840,21 @@ function hasProp(obj, prop) {
   }
 }
 
-var __defProp$1 = Object.defineProperty;
-var __defNormalProp$1 = (obj, key, value) => key in obj ? __defProp$1(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __publicField$1 = (obj, key, value) => {
-  __defNormalProp$1(obj, typeof key !== "symbol" ? key + "" : key, value);
+var __defProp$2 = Object.defineProperty;
+var __defNormalProp$2 = (obj, key, value) => key in obj ? __defProp$2(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __publicField$2 = (obj, key, value) => {
+  __defNormalProp$2(obj, typeof key !== "symbol" ? key + "" : key, value);
   return value;
 };
 class H3Error extends Error {
   constructor(message, opts = {}) {
     super(message, opts);
-    __publicField$1(this, "statusCode", 500);
-    __publicField$1(this, "fatal", false);
-    __publicField$1(this, "unhandled", false);
-    __publicField$1(this, "statusMessage");
-    __publicField$1(this, "data");
-    __publicField$1(this, "cause");
+    __publicField$2(this, "statusCode", 500);
+    __publicField$2(this, "fatal", false);
+    __publicField$2(this, "unhandled", false);
+    __publicField$2(this, "statusMessage");
+    __publicField$2(this, "data");
+    __publicField$2(this, "cause");
     if (opts.cause && !this.cause) {
       this.cause = opts.cause;
     }
@@ -1873,7 +1873,7 @@ class H3Error extends Error {
     return obj;
   }
 }
-__publicField$1(H3Error, "__h3_error__", true);
+__publicField$2(H3Error, "__h3_error__", true);
 function createError$1(input) {
   if (typeof input === "string") {
     return new H3Error(input);
@@ -2620,7 +2620,8 @@ function _normalizeNodeHeaders(nodeHeaders) {
 
 function defineEventHandler(handler) {
   if (typeof handler === "function") {
-    return Object.assign(handler, { __is_handler__: true });
+    handler.__is_handler__ = true;
+    return handler;
   }
   const _hooks = {
     onRequest: _normalizeArray(handler.onRequest),
@@ -2629,7 +2630,10 @@ function defineEventHandler(handler) {
   const _handler = (event) => {
     return _callHandler(event, handler.handler, _hooks);
   };
-  return Object.assign(_handler, { __is_handler__: true });
+  _handler.__is_handler__ = true;
+  _handler.__resolve__ = handler.handler.__resolve__;
+  _handler.__websocket__ = handler.websocket;
+  return _handler;
 }
 function _normalizeArray(input) {
   return input ? Array.isArray(input) ? input : [input] : void 0;
@@ -2677,37 +2681,46 @@ function defineLazyEventHandler(factory) {
     }
     if (!_promise) {
       _promise = Promise.resolve(factory()).then((r) => {
-        const handler = r.default || r;
-        if (typeof handler !== "function") {
+        const handler2 = r.default || r;
+        if (typeof handler2 !== "function") {
           throw new TypeError(
             "Invalid lazy handler result. It should be a function:",
-            handler
+            handler2
           );
         }
-        _resolved = toEventHandler(r.default || r);
+        _resolved = { handler: toEventHandler(r.default || r) };
         return _resolved;
       });
     }
     return _promise;
   };
-  return eventHandler((event) => {
+  const handler = eventHandler((event) => {
     if (_resolved) {
-      return _resolved(event);
+      return _resolved.handler(event);
     }
-    return resolveHandler().then((handler) => handler(event));
+    return resolveHandler().then((r) => r.handler(event));
   });
+  handler.__resolve__ = resolveHandler;
+  return handler;
 }
 const lazyEventHandler = defineLazyEventHandler;
 
 function createApp(options = {}) {
   const stack = [];
   const handler = createAppEventHandler(stack, options);
+  const resolve = createResolver(stack);
+  handler.__resolve__ = resolve;
+  const getWebsocket = cachedFn(() => websocketOptions(resolve, options));
   const app = {
-    // @ts-ignore
+    // @ts-expect-error
     use: (arg1, arg2, arg3) => use(app, arg1, arg2, arg3),
+    resolve,
     handler,
     stack,
-    options
+    options,
+    get websocket() {
+      return getWebsocket();
+    }
   };
   return app;
 }
@@ -2725,9 +2738,7 @@ function use(app, arg1, arg2, arg3) {
       normalizeLayer({ ...arg3, route: arg1, handler: arg2 })
     );
   } else if (typeof arg1 === "function") {
-    app.stack.push(
-      normalizeLayer({ ...arg2, route: "/", handler: arg1 })
-    );
+    app.stack.push(normalizeLayer({ ...arg2, handler: arg1 }));
   } else {
     app.stack.push(normalizeLayer({ ...arg1 }));
   }
@@ -2787,6 +2798,36 @@ function createAppEventHandler(stack, options) {
     }
   });
 }
+function createResolver(stack) {
+  return async (path) => {
+    let _layerPath;
+    for (const layer of stack) {
+      if (layer.route === "/" && !layer.handler.__resolve__) {
+        continue;
+      }
+      if (!path.startsWith(layer.route)) {
+        continue;
+      }
+      _layerPath = path.slice(layer.route.length) || "/";
+      if (layer.match && !layer.match(_layerPath, void 0)) {
+        continue;
+      }
+      let res = { route: layer.route, handler: layer.handler };
+      if (res.handler.__resolve__) {
+        const _res = await res.handler.__resolve__(_layerPath);
+        if (!_res) {
+          continue;
+        }
+        res = {
+          ...res,
+          ..._res,
+          route: joinURL(res.route || "/", _res.route || "/")
+        };
+      }
+      return res;
+    }
+  };
+}
 function normalizeLayer(input) {
   let handler = input.handler;
   if (handler.handler) {
@@ -2844,6 +2885,25 @@ function handleHandlerResponse(event, val, jsonSpace) {
     statusMessage: `[h3] Cannot send ${valType} as response.`
   });
 }
+function cachedFn(fn) {
+  let cache;
+  return () => {
+    if (!cache) {
+      cache = fn();
+    }
+    return cache;
+  };
+}
+function websocketOptions(evResolver, appOptions) {
+  return {
+    ...appOptions.websocket,
+    async resolve(info) {
+      const { pathname } = parseURL(info.url || "/");
+      const resolved = await evResolver(pathname);
+      return resolved?.handler?.__websocket__ || {};
+    }
+  };
+}
 
 const RouterMethods = [
   "connect",
@@ -2880,25 +2940,21 @@ function createRouter(opts = {}) {
   for (const method of RouterMethods) {
     router[method] = (path, handle) => router.add(path, handle, method);
   }
-  router.handler = eventHandler((event) => {
-    let path = event.path || "/";
+  const matchHandler = (path = "/", method = "get") => {
     const qIndex = path.indexOf("?");
     if (qIndex !== -1) {
       path = path.slice(0, Math.max(0, qIndex));
     }
     const matched = _router.lookup(path);
     if (!matched || !matched.handlers) {
-      if (opts.preemptive || opts.preemtive) {
-        throw createError$1({
+      return {
+        error: createError$1({
           statusCode: 404,
           name: "Not Found",
-          statusMessage: `Cannot find any route matching ${event.path || "/"}.`
-        });
-      } else {
-        return;
-      }
+          statusMessage: `Cannot find any route matching ${path || "/"}.`
+        })
+      };
     }
-    const method = (event.node.req.method || "get").toLowerCase();
     let handler = matched.handlers[method] || matched.handlers.all;
     if (!handler) {
       if (!_matcher) {
@@ -2919,26 +2975,58 @@ function createRouter(opts = {}) {
       }
     }
     if (!handler) {
-      if (opts.preemptive || opts.preemtive) {
-        throw createError$1({
+      return {
+        error: createError$1({
           statusCode: 405,
           name: "Method Not Allowed",
           statusMessage: `Method ${method} is not allowed on this route.`
-        });
+        })
+      };
+    }
+    return { matched, handler };
+  };
+  const isPreemptive = opts.preemptive || opts.preemtive;
+  router.handler = eventHandler((event) => {
+    const match = matchHandler(
+      event.path,
+      event.method.toLowerCase()
+    );
+    if ("error" in match) {
+      if (isPreemptive) {
+        throw match.error;
       } else {
         return;
       }
     }
-    event.context.matchedRoute = matched;
-    const params = matched.params || {};
+    event.context.matchedRoute = match.matched;
+    const params = match.matched.params || {};
     event.context.params = params;
-    return Promise.resolve(handler(event)).then((res) => {
-      if (res === void 0 && (opts.preemptive || opts.preemtive)) {
+    return Promise.resolve(match.handler(event)).then((res) => {
+      if (res === void 0 && isPreemptive) {
         return null;
       }
       return res;
     });
   });
+  router.handler.__resolve__ = async (path) => {
+    path = withLeadingSlash(path);
+    const match = matchHandler(path);
+    if ("error" in match) {
+      return;
+    }
+    let res = {
+      route: match.matched.path,
+      handler: match.handler
+    };
+    if (match.handler.__resolve__) {
+      const _res = await match.handler.__resolve__(path);
+      if (!_res) {
+        return;
+      }
+      res = { ...res, ..._res };
+    }
+    return res;
+  };
   return router;
 }
 function toNodeListener(app) {
@@ -3674,7 +3762,7 @@ function klona(x) {
 
 const inlineAppConfig = {
   "nuxt": {
-    "buildId": "71cc0bce-05d9-4936-b625-ff0e97f6c8b8"
+    "buildId": "12a5bda2-723a-401f-a27e-a5ec02ff82c0"
   }
 };
 
@@ -4958,65 +5046,58 @@ const assets = {
   "/favicon.ico": {
     "type": "image/vnd.microsoft.icon",
     "etag": "\"10be-n8egyE9tcb7sKGr/pYCaQ4uWqxI\"",
-    "mtime": "2024-02-23T08:33:54.181Z",
+    "mtime": "2024-02-27T08:46:07.377Z",
     "size": 4286,
     "path": "../public/favicon.ico"
   },
-  "/_nuxt/entry.BECJWQZF.js": {
+  "/_nuxt/default.4sGe1sqJ.js": {
     "type": "application/javascript",
-    "etag": "\"328ee-RnM8qwWa+ASxk34w0VKj+UN65qc\"",
-    "mtime": "2024-02-23T08:33:54.177Z",
-    "size": 207086,
-    "path": "../public/_nuxt/entry.BECJWQZF.js"
+    "etag": "\"100-VO8VnFYzyJEt3aUBDo2at3Tn7a0\"",
+    "mtime": "2024-02-27T08:46:07.373Z",
+    "size": 256,
+    "path": "../public/_nuxt/default.4sGe1sqJ.js"
   },
-  "/_nuxt/entry.CW_rqhLt.css": {
+  "/_nuxt/default.OsoqSlb0.css": {
     "type": "text/css; charset=utf-8",
-    "etag": "\"2f6e-ao+jxRRQM2jeofaMfPMHibUenhU\"",
-    "mtime": "2024-02-23T08:33:54.176Z",
-    "size": 12142,
-    "path": "../public/_nuxt/entry.CW_rqhLt.css"
+    "etag": "\"8a-5Lc8VXwXCkwDhMpR0zqQJSYwL0o\"",
+    "mtime": "2024-02-27T08:46:07.373Z",
+    "size": 138,
+    "path": "../public/_nuxt/default.OsoqSlb0.css"
   },
-  "/_nuxt/error-404.BJpHZlqW.css": {
-    "type": "text/css; charset=utf-8",
-    "etag": "\"e26-H6v+GO+5a9WKBYlXMJG6vXtuP6U\"",
-    "mtime": "2024-02-23T08:33:54.176Z",
-    "size": 3622,
-    "path": "../public/_nuxt/error-404.BJpHZlqW.css"
-  },
-  "/_nuxt/error-404.CvVMo3Ea.js": {
+  "/_nuxt/entry.BK_NYlbV.js": {
     "type": "application/javascript",
-    "etag": "\"1935-BaNyGCEJNlQ+9jdWxa4HP8O41KE\"",
-    "mtime": "2024-02-23T08:33:54.177Z",
-    "size": 6453,
-    "path": "../public/_nuxt/error-404.CvVMo3Ea.js"
+    "etag": "\"2415c-+jSs23dNej/dPe8uv2vk8Df+6/M\"",
+    "mtime": "2024-02-27T08:46:07.374Z",
+    "size": 147804,
+    "path": "../public/_nuxt/entry.BK_NYlbV.js"
   },
-  "/_nuxt/error-500.COlbLZF4.js": {
-    "type": "application/javascript",
-    "etag": "\"756-xSH31//28HzRUrsvnDvezbPeepg\"",
-    "mtime": "2024-02-23T08:33:54.176Z",
-    "size": 1878,
-    "path": "../public/_nuxt/error-500.COlbLZF4.js"
-  },
-  "/_nuxt/error-500.DaK1aTvB.css": {
+  "/_nuxt/entry.BtC1YjtP.css": {
     "type": "text/css; charset=utf-8",
-    "etag": "\"79e-3BF4R7+ff7qwURwbdRmffygNBGg\"",
-    "mtime": "2024-02-23T08:33:54.177Z",
-    "size": 1950,
-    "path": "../public/_nuxt/error-500.DaK1aTvB.css"
+    "etag": "\"767-E9SKccgn+XV0XcLK23YMplPXN3g\"",
+    "mtime": "2024-02-27T08:46:07.374Z",
+    "size": 1895,
+    "path": "../public/_nuxt/entry.BtC1YjtP.css"
+  },
+  "/_nuxt/index.-vSOT9ht.js": {
+    "type": "application/javascript",
+    "etag": "\"312a-Nnm0mp8jHNJrha+YtpasViDBVXw\"",
+    "mtime": "2024-02-27T08:46:07.374Z",
+    "size": 12586,
+    "path": "../public/_nuxt/index.-vSOT9ht.js"
   },
   "/_nuxt/builds/latest.json": {
     "type": "application/json",
-    "etag": "\"47-Psi/qWZoe0jKJD4tUHMzW4RPnqE\"",
-    "mtime": "2024-02-23T08:33:54.171Z",
+    "etag": "\"47-j368eplY35Rvs7NVZAWG2YGkYmU\"",
+    "mtime": "2024-02-27T08:46:07.368Z",
     "size": 71,
     "path": "../public/_nuxt/builds/latest.json"
   },
-  "/_nuxt/builds/meta/71cc0bce-05d9-4936-b625-ff0e97f6c8b8.json": {
+  "/_nuxt/builds/meta/12a5bda2-723a-401f-a27e-a5ec02ff82c0.json": {
     "type": "application/json",
-    "etag": "\"8b-NC0zgvacVe9tBesISgnIJRRKc0c\"",
-    "mtime": "2024-02-23T08:33:54.165Z",
+    "etag": "\"8b-tGZTX+zy6LdmBGHYaGetoIhlCR8\"",
+    "mtime": "2024-02-27T08:46:07.362Z",
     "size": 139,
-    "path": "../public/_nuxt/builds/meta/71cc0bce-05d9-4936-b625-ff0e97f6c8b8.json"
+    "path": "../public/_nuxt/builds/meta/12a5bda2-723a-401f-a27e-a5ec02ff82c0.json"
   }
 };
 
@@ -5213,12 +5294,14 @@ const _f4b49z = eventHandler((event) => {
   return readAsset(id);
 });
 
-const _lazy_8qmQ3l = () => import('../handlers/renderer.mjs');
+const _lazy_ose3di = () => import('../getMarkdown.mjs');
+const _lazy_Mxvx7W = () => import('../handlers/renderer.mjs');
 
 const handlers = [
   { route: '', handler: _f4b49z, lazy: false, middleware: true, method: undefined },
-  { route: '/__nuxt_error', handler: _lazy_8qmQ3l, lazy: true, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_8qmQ3l, lazy: true, middleware: false, method: undefined }
+  { route: '/api/getMarkdown', handler: _lazy_ose3di, lazy: true, middleware: false, method: undefined },
+  { route: '/__nuxt_error', handler: _lazy_Mxvx7W, lazy: true, middleware: false, method: undefined },
+  { route: '/**', handler: _lazy_Mxvx7W, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {
@@ -5592,5 +5675,5 @@ trapUnhandledNodeErrors();
 setupGracefulShutdown(listener, nitroApp);
 const nodeServer = {};
 
-export { send as a, setResponseStatus as b, setResponseHeaders as c, useRuntimeConfig as d, eventHandler as e, getQuery as f, getResponseStatus as g, createError$1 as h, getRouteRules as i, joinURL as j, getResponseStatusText as k, sanitizeStatusCode as l, createHooks as m, nodeServer as n, setResponseHeader as s, useNitroApp as u };
+export { send as a, setResponseStatus as b, setResponseHeaders as c, defineEventHandler as d, eventHandler as e, useRuntimeConfig as f, getResponseStatus as g, getQuery as h, createError$1 as i, joinURL as j, getRouteRules as k, getResponseStatusText as l, createHooks as m, sanitizeStatusCode as n, nodeServer as o, setResponseHeader as s, useNitroApp as u };
 //# sourceMappingURL=node-server.mjs.map

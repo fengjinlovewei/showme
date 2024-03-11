@@ -7,7 +7,7 @@ declare module 'nitropack' {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/getMarkdown').default>>>>
     }
     '/__nuxt_error': {
-      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/.pnpm/nuxt@3.10.3_sass@1.71.1_vite@5.1.4/node_modules/nuxt/dist/core/runtime/nitro/renderer').default>>>>
+      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/.pnpm/nuxt@3.10.3_@types+node@18.19.18_sass@1.71.1_typescript@5.3.3_vite@5.1.4/node_modules/nuxt/dist/core/runtime/nitro/renderer').default>>>>
     }
   }
 }

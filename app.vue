@@ -6,6 +6,7 @@
 
 <script setup lang="ts">
 import 'highlight.js/styles/atom-one-dark.css' //样式
+
 </script>
 
 <style lang="scss">

@@ -1,0 +1,222 @@
+{
+  "resolvedId": "/Users/zyb/Desktop/my/showme/app.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, withCtx as _withCtx, openBlock as _openBlock, createBlock as _createBlock } from \"vue\"\n\nimport 'highlight.js/styles/atom-one-dark.css' //样式\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'app',\n  setup(__props) {\n\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_NuxtPage = _resolveComponent(\"NuxtPage\")!\n  const _component_NuxtLayout = _resolveComponent(\"NuxtLayout\")!\n\n  return (_openBlock(), _createBlock(_component_NuxtLayout, null, {\n    default: _withCtx(() => [\n      _createVNode(_component_NuxtPage)\n    ]),\n    _: 1\n  }))\n}\n}\n\n})",
+      "start": 1709023564796,
+      "end": 1709023564796
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1709023564796,
+      "end": 1709023564796,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1709023564796,
+      "end": 1709023564796,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1709023564796,
+      "end": 1709023564797,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1709023564797,
+      "end": 1709023564797,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, withCtx as _withCtx, openBlock as _openBlock, createBlock as _createBlock } from \"vue\";\nimport \"highlight.js/styles/atom-one-dark.css\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"app\",\n  setup(__props) {\n    return (_ctx, _cache) => {\n      const _component_NuxtPage = _resolveComponent(\"NuxtPage\");\n      const _component_NuxtLayout = _resolveComponent(\"NuxtLayout\");\n      return _openBlock(), _createBlock(_component_NuxtLayout, null, {\n        default: _withCtx(() => [\n          _createVNode(_component_NuxtPage)\n        ]),\n        _: 1\n      });\n    };\n  }\n});\n",
+      "start": 1709023564800,
+      "end": 1709023564855,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/zyb/Desktop/my/showme/app.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, withCtx as _withCtx, openBlock as _openBlock, createBlock as _createBlock } from \"vue\"\n\nimport 'highlight.js/styles/atom-one-dark.css' //样式\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'app',\n  setup(__props) {\n\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_NuxtPage = _resolveComponent(\"NuxtPage\")!\n  const _component_NuxtLayout = _resolveComponent(\"NuxtLayout\")!\n\n  return (_openBlock(), _createBlock(_component_NuxtLayout, null, {\n    default: _withCtx(() => [\n      _createVNode(_component_NuxtPage)\n    ]),\n    _: 1\n  }))\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,oBAAoB,mBAAmB,eAAe,cAAc,WAAW,UAAU,aAAa,YAAY,eAAe,oBAAoB;AAE9J,OAAO;AAEP,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,MAAM,SAAS;AAGjB,WAAO,CAAC,MAAU,WAAgB;AAChC,YAAM,sBAAsB,kBAAkB,UAAU;AACxD,YAAM,wBAAwB,kBAAkB,YAAY;AAE5D,aAAQ,WAAW,GAAG,aAAa,uBAAuB,MAAM;AAAA,QAC9D,SAAS,SAAS,MAAM;AAAA,UACtB,aAAa,mBAAmB;AAAA,QAClC,CAAC;AAAA,QACD,GAAG;AAAA,MACL,CAAC;AAAA,IACH;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1709023564855,
+      "end": 1709023564855,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1709023564855,
+      "end": 1709023564855,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1709023564855,
+      "end": 1709023564855,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1709023564855,
+      "end": 1709023564855,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709023564855,
+      "end": 1709023564856,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1709023564856,
+      "end": 1709023564856,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1709023564856,
+      "end": 1709023564856,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1709023564856,
+      "end": 1709023564856,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709023564856,
+      "end": 1709023564856,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1709023564856,
+      "end": 1709023564856,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1709023564857,
+      "end": 1709023564857,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1709023564857,
+      "end": 1709023564857,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1709023564857,
+      "end": 1709023564857,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1709023564857,
+      "end": 1709023564857,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1709023564857,
+      "end": 1709023564857,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1709023564857,
+      "end": 1709023564857,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1709023564857,
+      "end": 1709023564857,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1709023564857,
+      "end": 1709023564857,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1709023564857,
+      "end": 1709023564857,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1709023564857,
+      "end": 1709023564858,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1709023564858,
+      "end": 1709023564858,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1709023564858,
+      "end": 1709023564858,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1709023564858,
+      "end": 1709023564858,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1709023564858,
+      "end": 1709023564858,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "result": "import { default as __nuxt_component_0 } from \"/Users/zyb/Desktop/my/showme/node_modules/.pnpm/nuxt@3.10.3_sass@1.71.1_vite@5.1.4/node_modules/nuxt/dist/pages/runtime/page\";\nimport { default as __nuxt_component_1 } from \"/Users/zyb/Desktop/my/showme/node_modules/.pnpm/nuxt@3.10.3_sass@1.71.1_vite@5.1.4/node_modules/nuxt/dist/app/components/nuxt-layout\";\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, withCtx as _withCtx, openBlock as _openBlock, createBlock as _createBlock } from \"vue\";\nimport \"highlight.js/styles/atom-one-dark.css\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"app\",\n  setup(__props) {\n    return (_ctx, _cache) => {\n      const _component_NuxtPage = __nuxt_component_0;\n      const _component_NuxtLayout = __nuxt_component_1;\n      return _openBlock(), _createBlock(_component_NuxtLayout, null, {\n        default: _withCtx(() => [\n          _createVNode(_component_NuxtPage)\n        ]),\n        _: 1\n      });\n    };\n  }\n});\n",
+      "start": 1709023564858,
+      "end": 1709023564858,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1709023564859,
+      "end": 1709023564859,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1709023564859,
+      "end": 1709023564859,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1709023564859,
+      "end": 1709023564859,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,239 @@
+{
+  "resolvedId": "/Users/zyb/Desktop/my/showme/pages/main/index.vue?macro=true&vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { withAsyncContext as _withAsyncContext, defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode } from \"vue\"\n\nconst _hoisted_1 = [\"innerHTML\"]\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'index',\n  async setup(__props) {\n\nlet __temp: any, __restore: any\n\nconst { data } = (\n  ([__temp,__restore] = _withAsyncContext(() => useFetch<{ html: string }>('/api/getMarkdown'))),\n  __temp = await __temp,\n  __restore(),\n  __temp\n);\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    (_unref(data))\n      ? (_openBlock(), _createElementBlock(\"div\", {\n          key: 0,\n          innerHTML: _unref(data).html\n        }, null, 8, _hoisted_1))\n      : _createCommentVNode(\"\", true)\n  ]))\n}\n}\n\n})",
+      "start": 1709023564794,
+      "end": 1709023564795
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1709023564795,
+      "end": 1709023564795,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1709023564795,
+      "end": 1709023564795,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1709023564795,
+      "end": 1709023564795,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1709023564795,
+      "end": 1709023564795,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { withAsyncContext as _withAsyncContext, defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode } from \"vue\";\nconst _hoisted_1 = [\"innerHTML\"];\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"index\",\n  async setup(__props) {\n    let __temp, __restore;\n    const { data } = ([__temp, __restore] = _withAsyncContext(() => useFetch(\"/api/getMarkdown\")), __temp = await __temp, __restore(), __temp);\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", null, [\n        _unref(data) ? (_openBlock(), _createElementBlock(\"div\", {\n          key: 0,\n          innerHTML: _unref(data).html\n        }, null, 8, _hoisted_1)) : _createCommentVNode(\"\", true)\n      ]);\n    };\n  }\n});\n",
+      "start": 1709023564795,
+      "end": 1709023564829,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/zyb/Desktop/my/showme/pages/main/index.vue?macro=true&vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { withAsyncContext as _withAsyncContext, defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode } from \"vue\"\n\nconst _hoisted_1 = [\"innerHTML\"]\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'index',\n  async setup(__props) {\n\nlet __temp: any, __restore: any\n\nconst { data } = (\n  ([__temp,__restore] = _withAsyncContext(() => useFetch<{ html: string }>('/api/getMarkdown'))),\n  __temp = await __temp,\n  __restore(),\n  __temp\n);\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    (_unref(data))\n      ? (_openBlock(), _createElementBlock(\"div\", {\n          key: 0,\n          innerHTML: _unref(data).html\n        }, null, 8, _hoisted_1))\n      : _createCommentVNode(\"\", true)\n  ]))\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,oBAAoB,mBAAmB,mBAAmB,wBAAwB;AAC3F,SAAS,SAAS,QAAQ,aAAa,YAAY,sBAAsB,qBAAqB,sBAAsB,2BAA2B;AAE/I,MAAM,aAAa,CAAC,WAAW;AAG/B,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,MAAM,MAAM,SAAS;AAEvB,QAAI,QAAa;AAEjB,UAAM,EAAE,KAAK,KACV,CAAC,QAAO,SAAS,IAAI,kBAAkB,MAAM,SAA2B,kBAAkB,CAAC,GAC5F,SAAS,MAAM,QACf,UAAU,GACV;AAGF,WAAO,CAAC,MAAU,WAAgB;AAChC,aAAQ,WAAW,GAAG,oBAAoB,OAAO,MAAM;AAAA,QACpD,OAAO,IAAI,KACP,WAAW,GAAG,oBAAoB,OAAO;AAAA,UACxC,KAAK;AAAA,UACL,WAAW,OAAO,IAAI,EAAE;AAAA,QAC1B,GAAG,MAAM,GAAG,UAAU,KACtB,oBAAoB,IAAI,IAAI;AAAA,MAClC,CAAC;AAAA,IACH;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1709023564829,
+      "end": 1709023564829,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1709023564829,
+      "end": 1709023564829,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1709023564829,
+      "end": 1709023564829,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1709023564829,
+      "end": 1709023564829,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709023564829,
+      "end": 1709023564829,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1709023564829,
+      "end": 1709023564829,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1709023564829,
+      "end": 1709023564829,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1709023564829,
+      "end": 1709023564829,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709023564829,
+      "end": 1709023564829,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1709023564829,
+      "end": 1709023564829,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1709023564829,
+      "end": 1709023564829,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1709023564829,
+      "end": 1709023564829,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1709023564829,
+      "end": 1709023564829,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1709023564829,
+      "end": 1709023564829,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1709023564829,
+      "end": 1709023564829,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1709023564829,
+      "end": 1709023564829,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1709023564829,
+      "end": 1709023564829,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1709023564829,
+      "end": 1709023564829,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1709023564829,
+      "end": 1709023564829,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "result": "import { useFetch } from '#app/composables/fetch';\nimport { withAsyncContext as _withAsyncContext, defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode } from \"vue\";\nconst _hoisted_1 = [\"innerHTML\"];\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"index\",\n  async setup(__props) {\n    let __temp, __restore;\n    const { data } = ([__temp, __restore] = _withAsyncContext(() => useFetch(\"/api/getMarkdown\")), __temp = await __temp, __restore(), __temp);\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", null, [\n        _unref(data) ? (_openBlock(), _createElementBlock(\"div\", {\n          key: 0,\n          innerHTML: _unref(data).html\n        }, null, 8, _hoisted_1)) : _createCommentVNode(\"\", true)\n      ]);\n    };\n  }\n});\n",
+      "start": 1709023564829,
+      "end": 1709023564830,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";AAAA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjG,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACrJ,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACxB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC1B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC/I,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC9B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC7D,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACtC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAChE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACT,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACN,CAAC,CAAC,CAAC;AACH,CAAC,CAAC,CAAC;"
+      }
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1709023564830,
+      "end": 1709023564830,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "result": "\nconst __nuxt_page_meta = null\nexport default __nuxt_page_meta\n",
+      "start": 1709023564830,
+      "end": 1709023564831,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "AAAA;AAAA;AAAA;AAAA"
+      }
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1709023564831,
+      "end": 1709023564831,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1709023564831,
+      "end": 1709023564831,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1709023564831,
+      "end": 1709023564831,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1709023564831,
+      "end": 1709023564831,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1709023564831,
+      "end": 1709023564831,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1709023564831,
+      "end": 1709023564831,
+      "order": "normal"
+    }
+  ]
+}

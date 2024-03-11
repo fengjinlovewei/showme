@@ -1,0 +1,263 @@
+{
+  "resolvedId": "/Users/zyb/Desktop/my/showme/node_modules/.pnpm/highlight.js@11.9.0/node_modules/highlight.js/styles/atom-one-dark.css",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "pre code.hljs {\n  display: block;\n  overflow-x: auto;\n  padding: 1em\n}\ncode.hljs {\n  padding: 3px 5px\n}\n/*\n\nAtom One Dark by Daniel Gamage\nOriginal One Dark Syntax theme from https://github.com/atom/one-dark-syntax\n\nbase:    #282c34\nmono-1:  #abb2bf\nmono-2:  #818896\nmono-3:  #5c6370\nhue-1:   #56b6c2\nhue-2:   #61aeee\nhue-3:   #c678dd\nhue-4:   #98c379\nhue-5:   #e06c75\nhue-5-2: #be5046\nhue-6:   #d19a66\nhue-6-2: #e6c07b\n\n*/\n.hljs {\n  color: #abb2bf;\n  background: #282c34\n}\n.hljs-comment,\n.hljs-quote {\n  color: #5c6370;\n  font-style: italic\n}\n.hljs-doctag,\n.hljs-keyword,\n.hljs-formula {\n  color: #c678dd\n}\n.hljs-section,\n.hljs-name,\n.hljs-selector-tag,\n.hljs-deletion,\n.hljs-subst {\n  color: #e06c75\n}\n.hljs-literal {\n  color: #56b6c2\n}\n.hljs-string,\n.hljs-regexp,\n.hljs-addition,\n.hljs-attribute,\n.hljs-meta .hljs-string {\n  color: #98c379\n}\n.hljs-attr,\n.hljs-variable,\n.hljs-template-variable,\n.hljs-type,\n.hljs-selector-class,\n.hljs-selector-attr,\n.hljs-selector-pseudo,\n.hljs-number {\n  color: #d19a66\n}\n.hljs-symbol,\n.hljs-bullet,\n.hljs-link,\n.hljs-meta,\n.hljs-selector-id,\n.hljs-title {\n  color: #61aeee\n}\n.hljs-built_in,\n.hljs-title.class_,\n.hljs-class .hljs-title {\n  color: #e6c07b\n}\n.hljs-emphasis {\n  font-style: italic\n}\n.hljs-strong {\n  font-weight: bold\n}\n.hljs-link {\n  text-decoration: underline\n}",
+      "start": 1709023566438,
+      "end": 1709023566453,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1709023566453,
+      "end": 1709023566453,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1709023566453,
+      "end": 1709023566453,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1709023566453,
+      "end": 1709023566453,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1709023566453,
+      "end": 1709023566453,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1709023566453,
+      "end": 1709023566453,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": "pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{background:#282c34;color:#abb2bf}.hljs-comment,.hljs-quote{color:#5c6370;font-style:italic}.hljs-doctag,.hljs-formula,.hljs-keyword{color:#c678dd}.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#e06c75}.hljs-literal{color:#56b6c2}.hljs-addition,.hljs-attribute,.hljs-meta .hljs-string,.hljs-regexp,.hljs-string{color:#98c379}.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#d19a66}.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#61aeee}.hljs-built_in,.hljs-class .hljs-title,.hljs-title.class_{color:#e6c07b}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}.hljs-link{text-decoration:underline}",
+      "start": 1709023566453,
+      "end": 1709023566461,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "/Users/zyb/Desktop/my/showme/node_modules/.pnpm/highlight.js@11.9.0/node_modules/highlight.js/styles/atom-one-dark.css",
+        "mappings": "AAAA,cACE,aAAc,CACd,eAAgB,CAChB,WACF,CACA,UACE,eACF,CAoBA,MAEE,kBAAkB,CADlB,aAEF,CACA,0BAEE,aAAc,CACd,iBACF,CACA,yCAGE,aACF,CACA,uEAKE,aACF,CACA,cACE,aACF,CACA,iFAKE,aACF,CACA,yIAQE,aACF,CACA,8EAME,aACF,CACA,0DAGE,aACF,CACA,eACE,iBACF,CACA,aACE,eACF,CACA,WACE,yBACF",
+        "names": [],
+        "sources": [
+          "/Users/zyb/Desktop/my/showme/node_modules/.pnpm/highlight.js@11.9.0/node_modules/highlight.js/styles/atom-one-dark.css"
+        ],
+        "sourcesContent": [
+          "pre code.hljs {\n  display: block;\n  overflow-x: auto;\n  padding: 1em\n}\ncode.hljs {\n  padding: 3px 5px\n}\n/*\n\nAtom One Dark by Daniel Gamage\nOriginal One Dark Syntax theme from https://github.com/atom/one-dark-syntax\n\nbase:    #282c34\nmono-1:  #abb2bf\nmono-2:  #818896\nmono-3:  #5c6370\nhue-1:   #56b6c2\nhue-2:   #61aeee\nhue-3:   #c678dd\nhue-4:   #98c379\nhue-5:   #e06c75\nhue-5-2: #be5046\nhue-6:   #d19a66\nhue-6-2: #e6c07b\n\n*/\n.hljs {\n  color: #abb2bf;\n  background: #282c34\n}\n.hljs-comment,\n.hljs-quote {\n  color: #5c6370;\n  font-style: italic\n}\n.hljs-doctag,\n.hljs-keyword,\n.hljs-formula {\n  color: #c678dd\n}\n.hljs-section,\n.hljs-name,\n.hljs-selector-tag,\n.hljs-deletion,\n.hljs-subst {\n  color: #e06c75\n}\n.hljs-literal {\n  color: #56b6c2\n}\n.hljs-string,\n.hljs-regexp,\n.hljs-addition,\n.hljs-attribute,\n.hljs-meta .hljs-string {\n  color: #98c379\n}\n.hljs-attr,\n.hljs-variable,\n.hljs-template-variable,\n.hljs-type,\n.hljs-selector-class,\n.hljs-selector-attr,\n.hljs-selector-pseudo,\n.hljs-number {\n  color: #d19a66\n}\n.hljs-symbol,\n.hljs-bullet,\n.hljs-link,\n.hljs-meta,\n.hljs-selector-id,\n.hljs-title {\n  color: #61aeee\n}\n.hljs-built_in,\n.hljs-title.class_,\n.hljs-class .hljs-title {\n  color: #e6c07b\n}\n.hljs-emphasis {\n  font-style: italic\n}\n.hljs-strong {\n  font-weight: bold\n}\n.hljs-link {\n  text-decoration: underline\n}"
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1709023566461,
+      "end": 1709023566461,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1709023566461,
+      "end": 1709023566461,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1709023566461,
+      "end": 1709023566461,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1709023566461,
+      "end": 1709023566461,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1709023566461,
+      "end": 1709023566461,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709023566461,
+      "end": 1709023566461,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709023566461,
+      "end": 1709023566461,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1709023566461,
+      "end": 1709023566461,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1709023566461,
+      "end": 1709023566461,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1709023566461,
+      "end": 1709023566461,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709023566461,
+      "end": 1709023566461,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1709023566461,
+      "end": 1709023566461,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1709023566461,
+      "end": 1709023566461,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1709023566461,
+      "end": 1709023566461,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1709023566461,
+      "end": 1709023566461,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1709023566461,
+      "end": 1709023566461,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1709023566461,
+      "end": 1709023566461,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1709023566461,
+      "end": 1709023566461,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1709023566461,
+      "end": 1709023566461,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1709023566461,
+      "end": 1709023566461,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1709023566461,
+      "end": 1709023566461,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1709023566461,
+      "end": 1709023566461,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1709023566461,
+      "end": 1709023566461,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1709023566461,
+      "end": 1709023566461,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1709023566461,
+      "end": 1709023566461,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1709023566461,
+      "end": 1709023566461,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1709023566461,
+      "end": 1709023566461,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1709023566461,
+      "end": 1709023566461,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1709023566461,
+      "end": 1709023566461,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1709023566461,
+      "end": 1709023566461,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1709023566461,
+      "end": 1709023566461,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1709023566462,
+      "end": 1709023566462,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1709023566462,
+      "end": 1709023566462,
+      "order": "normal"
+    }
+  ]
+}
