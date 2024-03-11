@@ -11,7 +11,6 @@
     "@vue/compiler-core": "3.4.20",
     "@vue/compiler-dom": "3.4.20",
     "@vue/compiler-ssr": "3.4.20",
-    "@vue/devtools-api": "6.6.1",
     "@vue/reactivity": "3.4.20",
     "@vue/runtime-core": "3.4.20",
     "@vue/runtime-dom": "3.4.20",
@@ -28,7 +27,6 @@
     "ufo": "1.4.0",
     "unhead": "1.8.10",
     "vue": "3.4.20",
-    "vue-bundle-renderer": "2.0.0",
-    "vue-router": "4.3.0"
+    "vue-bundle-renderer": "2.0.0"
   }
 }
